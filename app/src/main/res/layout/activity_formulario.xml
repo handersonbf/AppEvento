@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+
+            <ImageView
+                android:id="@+id/formulario_foto"
+                android:layout_width="match_parent"
+                android:layout_height="275dp"
+                android:src="@drawable/participante"
+                android:background="@color/primary"/>
+
+            <Button
+                android:id="@+id/formulario_botao_foto"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/fundo_camera"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"/>
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/edt_nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome"/>
+
+        <EditText
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="E-mail"/>
+
+        <EditText
+            android:id="@+id/edt_telefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Telefone"/>
+
+        <EditText
+            android:id="@+id/edt_endereco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Endereço"/>
+
+        <Button
+            android:id="@+id/btn_inserir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inserir"/>
+
+    </LinearLayout>
+</ScrollView>

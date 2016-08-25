@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/novo"
+        android:title="Novo"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_novo"
+        />
+
+    <item
+        android:id="@+id/preferencias"
+        android:title="Preferências"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_preferencias"
+        />
+
+    <item
+        android:id="@+id/mais_opcoes"
+        android:title="Mais Opções"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_opcoes">
+        <menu>
+            <item
+                android:id="@+id/localizacao"
+                android:title="Localização"
+                app:showAsAction="always"
+                android:icon="@drawable/ic_mapa"
+                />
+
+            <item
+                android:id="@+id/proximos_eventos"
+                android:title="Lista de Eventos"
+                app:showAsAction="always"
+                android:icon="@drawable/ic_eventos"
+                />
+        </menu>
+    </item>
+</menu>
