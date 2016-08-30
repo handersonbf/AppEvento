@@ -11,7 +11,7 @@
         android:minHeight="?attr/actionBarSize"
         android:layout_alignParentLeft="true"
         android:layout_margin="8dp"
-        android:elevation="4dp" />
+        android:elevation="4dp" />E
 
     <FrameLayout
         android:id="@+id/eventos_view"
