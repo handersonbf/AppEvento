@@ -2,7 +2,9 @@ package android.triadworks.cursos.appevento.converter;
 
 import android.triadworks.cursos.appevento.modelo.Participante;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.json.JSONStringer;
 
 import java.util.List;
@@ -41,6 +43,25 @@ public class ParticipanteConverter {
         }
 
         return js.toString();
+    }
+
+    public String converterParaObjeto(String json){
+        try {
+            JSONObject jsonObject = new JSONObject(json);
+            int count = (int) jsonObject.get("total_count");
+
+            JSONArray array = jsonObject.getJSONArray("items");;
+
+            if(count == 0){
+                array.put("Não possui conta no GITHub!");
+            }
+
+            return array.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
 }
