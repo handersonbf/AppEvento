@@ -9,6 +9,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.triadworks.cursos.appevento.adapter.ParticipantesAdapter;
+import android.triadworks.cursos.appevento.converter.ParticipanteConverter;
 import android.triadworks.cursos.appevento.dao.ParticipanteDAO;
 import android.triadworks.cursos.appevento.modelo.Participante;
 import android.view.ContextMenu;
@@ -104,6 +105,9 @@ public class ListaParticipantesActivity extends AppCompatActivity {
                 Intent intentEventos = new Intent(this, EventosActivity.class);
                 startActivity(intentEventos);
                 break;
+            case R.id.exportar_json:
+                exportarListaJSON();
+                break;
             default:
                 break;
         }
@@ -182,5 +186,16 @@ public class ListaParticipantesActivity extends AppCompatActivity {
         });
 
         super.onCreateContextMenu(menu, v, menuInfo);
+    }
+
+    private void exportarListaJSON(){
+        ParticipanteDAO dao = new ParticipanteDAO(this);
+        List<Participante> lista = dao.getLista();
+        dao.close();
+
+        ParticipanteConverter conversor = new ParticipanteConverter();
+        String json = conversor.converterParaJSON(lista);
+
+        Toast.makeText(this, json, Toast.LENGTH_LONG).show();
     }
 }
