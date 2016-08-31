@@ -13,6 +13,7 @@ import android.triadworks.cursos.appevento.converter.ParticipanteConverter;
 import android.triadworks.cursos.appevento.dao.ParticipanteDAO;
 import android.triadworks.cursos.appevento.modelo.Participante;
 import android.triadworks.cursos.appevento.services.WebClient;
+import android.triadworks.cursos.appevento.tasks.BuscarParticipanteGitHubTask;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -190,10 +191,9 @@ public class ListaParticipantesActivity extends AppCompatActivity {
         menuGit.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                WebClient web = new WebClient();
-                String resposta = web.get(participante.getNome());
-
-                Toast.makeText(ListaParticipantesActivity.this, resposta, Toast.LENGTH_LONG).show();
+                new BuscarParticipanteGitHubTask(ListaParticipantesActivity.this,
+                        participante.getNome())
+                        .execute();
                 return false;
             }
         });
