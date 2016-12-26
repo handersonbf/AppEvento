@@ -37,12 +37,6 @@ public class ListaParticipantesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_participantes);
 
-
-//        String[] participantes = {
-//                "Handerson Frota", "Guilherme Frota", "Nahan Frota",
-//                "William Frota", "Gabriel Frota"};
-
-
         this.listaParticipantes = (ListView) findViewById(R.id.lista_participantes);
 
         registerForContextMenu(this.listaParticipantes);
@@ -68,12 +62,7 @@ public class ListaParticipantesActivity extends AppCompatActivity {
                     @Override
                     public boolean onItemLongClick(AdapterView<?> parent,
                                                    View view, int position, long id) {
-
                         participante = (Participante) parent.getItemAtPosition(position);
-
-                        Toast.makeText(ListaParticipantesActivity.this,
-                                "Clique longo",
-                                Toast.LENGTH_SHORT).show();
                         return false;
                     }
                 });
@@ -110,6 +99,10 @@ public class ListaParticipantesActivity extends AppCompatActivity {
             case R.id.exportar_json:
                 exportarListaJSON();
                 break;
+            case R.id.recycle:
+                Intent inte = new Intent(this, RecycleActivity.class);
+                startActivity(inte);
+                break;
             default:
                 break;
         }
@@ -133,8 +126,6 @@ public class ListaParticipantesActivity extends AppCompatActivity {
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-
-        menu.add("Tirar foto");
 
         MenuItem menuLigar = menu.add("Ligar...");
         menuLigar.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
