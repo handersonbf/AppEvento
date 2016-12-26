@@ -99,10 +99,6 @@ public class ListaParticipantesActivity extends AppCompatActivity {
             case R.id.exportar_json:
                 exportarListaJSON();
                 break;
-            case R.id.recycle:
-                Intent inte = new Intent(this, RecycleActivity.class);
-                startActivity(inte);
-                break;
             default:
                 break;
         }
