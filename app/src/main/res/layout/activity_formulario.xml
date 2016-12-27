@@ -27,7 +27,9 @@
                 android:background="@drawable/fundo_camera"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="16dp"/>
+                android:layout_marginRight="16dp"
+                android:onClick="showPopup"/>
+
         </RelativeLayout>
 
         <EditText

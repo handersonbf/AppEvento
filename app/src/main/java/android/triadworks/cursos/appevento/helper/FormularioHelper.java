@@ -1,12 +1,18 @@
 package android.triadworks.cursos.appevento.helper;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.triadworks.cursos.appevento.FormularioActivity;
 import android.triadworks.cursos.appevento.R;
 import android.triadworks.cursos.appevento.modelo.Participante;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by handersonbf on 19/08/16.
@@ -18,6 +24,7 @@ public class FormularioHelper {
     private EditText campoEndereco;
     private ImageView campoFoto;
     private Participante participante;
+    private Bitmap bitmap;
 
     public FormularioHelper(FormularioActivity activity){
         participante = new Participante();
@@ -64,4 +71,5 @@ public class FormularioHelper {
             campoFoto.setTag(caminhoFoto);
         }
     }
+
 }
