@@ -63,10 +63,13 @@ public class ParticipantesAdapter extends BaseAdapter {
         String caminhoFoto = participante.getCaminhoFoto();
         if(caminhoFoto != null && !caminhoFoto.isEmpty()) {
             Bitmap bitmap = BitmapFactory.decodeFile(caminhoFoto);
-            Bitmap bitmapReduzido = Bitmap.createScaledBitmap(bitmap, 100, 100, true);
+            Bitmap bitmapReduzido;
+            if(bitmap != null) {
+                bitmapReduzido = Bitmap.createScaledBitmap(bitmap, 100, 100, true);
+                campoFoto.setImageBitmap(bitmapReduzido);
+                campoFoto.setScaleType(ImageView.ScaleType.FIT_XY);
+            }
 
-            campoFoto.setImageBitmap(bitmapReduzido);
-            campoFoto.setScaleType(ImageView.ScaleType.FIT_XY);
         }
 
         TextView campoEmail = (TextView) view.findViewById(R.id.item_email);
