@@ -10,6 +10,9 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,6 +37,11 @@ public class FormularioHelper {
         campoTelefone = (EditText) activity.findViewById(R.id.edt_telefone);
         campoEndereco = (EditText) activity.findViewById(R.id.edt_endereco);
         campoFoto = (ImageView) activity.findViewById(R.id.formulario_foto);
+
+        // Adiciona uma máscara ao campoTelefone: (NN) NNNNN-NNNN
+        SimpleMaskFormatter simpleMaskTelefone = new SimpleMaskFormatter("(NN) NNNNN-NNNN");
+        MaskTextWatcher maskTelefone = new MaskTextWatcher(campoTelefone, simpleMaskTelefone);
+        campoTelefone.addTextChangedListener(maskTelefone);
     }
 
     public Participante getParticipanteDoFormulario(){
