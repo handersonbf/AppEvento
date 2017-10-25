@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
 import android.triadworks.cursos.appevento.dao.ParticipanteDAO;
@@ -116,14 +117,20 @@ public class FormularioActivity extends AppCompatActivity implements PopupMenu.O
         startActivityForResult(abrirGaleria,CODIGO_GALERIA);
     }
 
+
     public void selecionarCamera(){
         Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
         caminhoFoto = getExternalFilesDir(null) + "/"
                 + System.currentTimeMillis() + ".jpg";
+
         File arquivoFoto = new File(caminhoFoto);
 
-        intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(arquivoFoto));
+        Uri fotoProviderURI = FileProvider.getUriForFile(getApplicationContext(),
+                getApplicationContext().getPackageName()+".fileprovider",
+                arquivoFoto);
+
+        intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, fotoProviderURI);
         startActivityForResult(intentCamera, CODIGO_CAMERA);
     }
 
